@@ -29,7 +29,14 @@ const ChatBot: React.FC = () => {
 
   const initChat = () => {
     if (!chatInstance.current) {
-      const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+      const apiKey = process.env.API_KEY;
+      
+      if (!apiKey) {
+        console.warn("Gemini API Key is missing. AI features will be disabled.");
+        return;
+      }
+
+      const ai = new GoogleGenAI({ apiKey });
       chatInstance.current = ai.chats.create({
         model: 'gemini-3-flash-preview',
         config: {
@@ -79,8 +86,18 @@ const ChatBot: React.FC = () => {
     setIsTyping(true);
     initChat();
 
+    if (!chatInstance.current) {
+      setMessages(prev => [...prev, { 
+        role: 'model', 
+        text: "I'm currently in offline mode as my connection to the brain-center is being configured. Please use our contact form for immediate assistance!", 
+        timestamp: new Date() 
+      }]);
+      setIsTyping(false);
+      return;
+    }
+
     try {
-      const response = await chatInstance.current!.sendMessageStream({ message: text });
+      const response = await chatInstance.current.sendMessageStream({ message: text });
       
       let fullResponse = '';
       setMessages(prev => [...prev, { role: 'model', text: '', timestamp: new Date() }]);

@@ -1,8 +1,12 @@
 
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { BrowserRouter } from 'react-router-dom';
 import App from './App';
+
+// Safety check for environments where process.env might not be defined
+if (typeof (window as any).process === 'undefined') {
+  (window as any).process = { env: {} };
+}
 
 const rootElement = document.getElementById('root');
 if (!rootElement) {
@@ -12,8 +16,6 @@ if (!rootElement) {
 const root = ReactDOM.createRoot(rootElement);
 root.render(
   <React.StrictMode>
-    <BrowserRouter>
-      <App />
-	</BrowserRouter>
+    <App />
   </React.StrictMode>
 );
