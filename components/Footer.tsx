@@ -55,19 +55,19 @@ const Footer: React.FC = () => {
                 <div className="p-2.5 bg-slate-900 rounded-lg text-blue-500 group-hover:bg-blue-600 group-hover:text-white transition-all">
                   <Mail size={18} />
                 </div>
-                <span className="text-slate-300">golla_rajesh123@rediffmail.com</span>
+                <span className="text-slate-300">manduri9217@gmail.com</span>
               </li>
               <li className="flex items-center space-x-4 group">
                 <div className="p-2.5 bg-slate-900 rounded-lg text-blue-500 group-hover:bg-blue-600 group-hover:text-white transition-all">
                   <Phone size={18} />
                 </div>
-                <span className="text-slate-300">+1 (800) FEATURE-V</span>
+                <span className="text-slate-300">+91 9133552227 FEATURE-V</span>
               </li>
               <li className="flex items-start space-x-4 group">
                 <div className="p-2.5 bg-slate-900 rounded-lg text-blue-500 group-hover:bg-blue-600 group-hover:text-white transition-all">
                   <MapPin size={18} />
                 </div>
-                <span className="text-slate-300 leading-relaxed">Global HQ: Tech Plaza,<br/>Innovation Way, Silicon Valley</span>
+                <span className="text-slate-300 leading-relaxed">HQ: Samrat Complex,<br/>Flat#c3,3rd floor, office block, opposite to AG's office,saidabad, Hyderabad 500004, Telangana, India.</span>
               </li>
             </ul>
           </div>
